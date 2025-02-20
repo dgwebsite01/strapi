@@ -1,0 +1,19 @@
+{
+  "collectionName": "components_layout_buttons",
+  "info": {
+    "displayName": "Button",
+    "icon": "arrowUp"
+  },
+  "options": {},
+  "attributes": {
+    "Text": {
+      "type": "string",
+      "required": true,
+      "maxLength": 20
+    },
+    "NavigateTo": {
+      "type": "string",
+      "required": true
+    }
+  }
+}
