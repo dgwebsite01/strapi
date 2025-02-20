@@ -1,0 +1,16 @@
+{
+  "collectionName": "components_layout_image_lists",
+  "info": {
+    "displayName": "ToolsList",
+    "icon": "eye",
+    "description": ""
+  },
+  "options": {},
+  "attributes": {
+    "tools": {
+      "type": "component",
+      "repeatable": true,
+      "component": "layout.tool"
+    }
+  }
+}

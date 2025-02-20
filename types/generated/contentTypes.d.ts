@@ -362,79 +362,6 @@ export interface AdminTransferTokenPermission extends Schema.CollectionType {
   };
 }
 
-export interface ApiCvCv extends Schema.SingleType {
-  collectionName: 'cvs';
-  info: {
-    singularName: 'cv';
-    pluralName: 'cvs';
-    displayName: 'CV';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    content: Attribute.RichText & Attribute.Required;
-    defaultFont: Attribute.Enumeration<
-      [
-        'exo-2',
-        'exo-2-extra-large',
-        'exo-2-bold',
-        'exo-2-bold-extra-large',
-        'iceland-regular',
-        'iceland-regular-extra-large',
-        'iceland-regular-bold',
-        'iceland-regular-bold-extra-large',
-        'playwrite-de-grund',
-        'playwrite-de-grund-bold',
-        'playwrite-de-grund-extra-large',
-        'playwrite-de-grund-bold-extra-large',
-        'quicksand',
-        'quicksand-extra-large',
-        'quicksand-bold',
-        'quicksand-bold-extra-large'
-      ]
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::cv.cv', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<'api::cv.cv', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-  };
-}
-
-export interface ApiHeaderHeader extends Schema.SingleType {
-  collectionName: 'headers';
-  info: {
-    singularName: 'header';
-    pluralName: 'headers';
-    displayName: 'Header';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    HeaderSection: Attribute.Component<'layout.button', true>;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<
-      'api::header.header',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<
-      'api::header.header',
-      'oneToOne',
-      'admin::user'
-    > &
-      Attribute.Private;
-  };
-}
-
 export interface PluginUploadFile extends Schema.CollectionType {
   collectionName: 'files';
   info: {
@@ -861,6 +788,143 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiCvCv extends Schema.SingleType {
+  collectionName: 'cvs';
+  info: {
+    singularName: 'cv';
+    pluralName: 'cvs';
+    displayName: 'CV';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Attribute.RichText & Attribute.Required;
+    defaultFont: Attribute.Enumeration<
+      [
+        'exo-2',
+        'exo-2-extra-large',
+        'exo-2-bold',
+        'exo-2-bold-extra-large',
+        'iceland-regular',
+        'iceland-regular-extra-large',
+        'iceland-regular-bold',
+        'iceland-regular-bold-extra-large',
+        'playwrite-de-grund',
+        'playwrite-de-grund-bold',
+        'playwrite-de-grund-extra-large',
+        'playwrite-de-grund-bold-extra-large',
+        'quicksand',
+        'quicksand-extra-large',
+        'quicksand-bold',
+        'quicksand-bold-extra-large'
+      ]
+    >;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::cv.cv', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::cv.cv', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
+export interface ApiHeaderHeader extends Schema.SingleType {
+  collectionName: 'headers';
+  info: {
+    singularName: 'header';
+    pluralName: 'headers';
+    displayName: 'Header';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    HeaderSection: Attribute.Component<'layout.button', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::header.header',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::header.header',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiIntroIntro extends Schema.SingleType {
+  collectionName: 'intros';
+  info: {
+    singularName: 'intro';
+    pluralName: 'intros';
+    displayName: 'intro';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    content: Attribute.Component<'layout.rich-text-w-ith-specific-font'>;
+    photo: Attribute.Media<'images'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::intro.intro',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::intro.intro',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiTechnologiesListTechnologiesList extends Schema.SingleType {
+  collectionName: 'technologies_lists';
+  info: {
+    singularName: 'technologies-list';
+    pluralName: 'technologies-lists';
+    displayName: 'TechnologiesList';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    tools: Attribute.Component<'layout.image-list'>;
+    Text: Attribute.Component<'layout.rich-text-w-ith-specific-font'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::technologies-list.technologies-list',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::technologies-list.technologies-list',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 declare module '@strapi/types' {
   export module Shared {
     export interface ContentTypes {
@@ -871,8 +935,6 @@ declare module '@strapi/types' {
       'admin::api-token-permission': AdminApiTokenPermission;
       'admin::transfer-token': AdminTransferToken;
       'admin::transfer-token-permission': AdminTransferTokenPermission;
-      'api::cv.cv': ApiCvCv;
-      'api::header.header': ApiHeaderHeader;
       'plugin::upload.file': PluginUploadFile;
       'plugin::upload.folder': PluginUploadFolder;
       'plugin::content-releases.release': PluginContentReleasesRelease;
@@ -881,6 +943,10 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::cv.cv': ApiCvCv;
+      'api::header.header': ApiHeaderHeader;
+      'api::intro.intro': ApiIntroIntro;
+      'api::technologies-list.technologies-list': ApiTechnologiesListTechnologiesList;
     }
   }
 }

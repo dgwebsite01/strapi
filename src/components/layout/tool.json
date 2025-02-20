@@ -1,0 +1,24 @@
+{
+  "collectionName": "components_layout_tools",
+  "info": {
+    "displayName": "Tool",
+    "icon": "cup"
+  },
+  "options": {},
+  "attributes": {
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    },
+    "tooltip": {
+      "type": "string"
+    },
+    "NavigateTo": {
+      "type": "string"
+    }
+  }
+}

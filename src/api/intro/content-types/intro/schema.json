@@ -1,0 +1,28 @@
+{
+  "kind": "singleType",
+  "collectionName": "intros",
+  "info": {
+    "singularName": "intro",
+    "pluralName": "intros",
+    "displayName": "intro",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "content": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.rich-text-w-ith-specific-font"
+    },
+    "photo": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}
