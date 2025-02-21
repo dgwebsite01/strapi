@@ -13,6 +13,22 @@ export interface LayoutTool extends Schema.Component {
   };
 }
 
+export interface LayoutTimelineItem extends Schema.Component {
+  collectionName: 'components_layout_timeline_items';
+  info: {
+    displayName: 'timeline-item';
+    icon: 'envelop';
+    description: '';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    date: Attribute.String;
+    icon: Attribute.String & Attribute.DefaultTo<'pi pi-check-circle'>;
+    image: Attribute.Media<'images'>;
+    text: Attribute.Text;
+  };
+}
+
 export interface LayoutRichTextWIthSpecificFont extends Schema.Component {
   collectionName: 'components_layout_rich_text_w_ith_specific_fonts';
   info: {
@@ -78,6 +94,7 @@ declare module '@strapi/types' {
   export module Shared {
     export interface Components {
       'layout.tool': LayoutTool;
+      'layout.timeline-item': LayoutTimelineItem;
       'layout.rich-text-w-ith-specific-font': LayoutRichTextWIthSpecificFont;
       'layout.image-list': LayoutImageList;
       'layout.button': LayoutButton;

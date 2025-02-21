@@ -788,6 +788,44 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiContactInfoContactInfo extends Schema.SingleType {
+  collectionName: 'contact_infos';
+  info: {
+    singularName: 'contact-info';
+    pluralName: 'contact-infos';
+    displayName: 'ContactInfo';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    phone: Attribute.String;
+    email: Attribute.Email;
+    linkedin: Attribute.String;
+    github: Attribute.String;
+    youtube: Attribute.String;
+    twitter: Attribute.String;
+    address: Attribute.String;
+    title: Attribute.String;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::contact-info.contact-info',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::contact-info.contact-info',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiCvCv extends Schema.SingleType {
   collectionName: 'cvs';
   info: {
@@ -893,6 +931,37 @@ export interface ApiIntroIntro extends Schema.SingleType {
   };
 }
 
+export interface ApiResumeResume extends Schema.SingleType {
+  collectionName: 'resumes';
+  info: {
+    singularName: 'resume';
+    pluralName: 'resumes';
+    displayName: 'Resume';
+    description: '';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    resumeItems: Attribute.Component<'layout.timeline-item', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::resume.resume',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::resume.resume',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiTechnologiesListTechnologiesList extends Schema.SingleType {
   collectionName: 'technologies_lists';
   info: {
@@ -943,9 +1012,11 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::contact-info.contact-info': ApiContactInfoContactInfo;
       'api::cv.cv': ApiCvCv;
       'api::header.header': ApiHeaderHeader;
       'api::intro.intro': ApiIntroIntro;
+      'api::resume.resume': ApiResumeResume;
       'api::technologies-list.technologies-list': ApiTechnologiesListTechnologiesList;
     }
   }
