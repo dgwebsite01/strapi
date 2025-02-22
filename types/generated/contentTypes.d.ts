@@ -931,6 +931,36 @@ export interface ApiIntroIntro extends Schema.SingleType {
   };
 }
 
+export interface ApiProjectListProjectList extends Schema.SingleType {
+  collectionName: 'project_lists';
+  info: {
+    singularName: 'project-list';
+    pluralName: 'project-lists';
+    displayName: 'ProjectList';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    projects: Attribute.Component<'layout.project', true> & Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::project-list.project-list',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::project-list.project-list',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiResumeResume extends Schema.SingleType {
   collectionName: 'resumes';
   info: {
@@ -1016,6 +1046,7 @@ declare module '@strapi/types' {
       'api::cv.cv': ApiCvCv;
       'api::header.header': ApiHeaderHeader;
       'api::intro.intro': ApiIntroIntro;
+      'api::project-list.project-list': ApiProjectListProjectList;
       'api::resume.resume': ApiResumeResume;
       'api::technologies-list.technologies-list': ApiTechnologiesListTechnologiesList;
     }

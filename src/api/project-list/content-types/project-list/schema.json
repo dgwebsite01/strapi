@@ -1,0 +1,21 @@
+{
+  "kind": "singleType",
+  "collectionName": "project_lists",
+  "info": {
+    "singularName": "project-list",
+    "pluralName": "project-lists",
+    "displayName": "ProjectList"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "projects": {
+      "type": "component",
+      "repeatable": true,
+      "component": "layout.project",
+      "required": true
+    }
+  }
+}

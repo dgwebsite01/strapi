@@ -1,0 +1,25 @@
+{
+  "collectionName": "components_layout_project_contributors",
+  "info": {
+    "displayName": "ProjectContributor",
+    "icon": "grid"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string"
+    },
+    "url": {
+      "type": "string",
+      "required": false
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false,
+      "required": true
+    }
+  }
+}
