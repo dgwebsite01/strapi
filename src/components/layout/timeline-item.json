@@ -27,7 +27,7 @@
       ]
     },
     "text": {
-      "type": "text"
+      "type": "richtext"
     }
   }
 }

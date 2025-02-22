@@ -937,12 +937,14 @@ export interface ApiProjectListProjectList extends Schema.SingleType {
     singularName: 'project-list';
     pluralName: 'project-lists';
     displayName: 'ProjectList';
+    description: '';
   };
   options: {
     draftAndPublish: true;
   };
   attributes: {
     projects: Attribute.Component<'layout.project', true> & Attribute.Required;
+    introText: Attribute.Component<'layout.rich-text-w-ith-specific-font'>;
     createdAt: Attribute.DateTime;
     updatedAt: Attribute.DateTime;
     publishedAt: Attribute.DateTime;

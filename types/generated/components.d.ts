@@ -25,7 +25,7 @@ export interface LayoutTimelineItem extends Schema.Component {
     date: Attribute.String;
     icon: Attribute.String & Attribute.DefaultTo<'pi pi-check-circle'>;
     image: Attribute.Media<'images'>;
-    text: Attribute.Text;
+    text: Attribute.RichText;
   };
 }
 
@@ -71,10 +71,10 @@ export interface LayoutProject extends Schema.Component {
   };
   attributes: {
     name: Attribute.String & Attribute.Required;
-    description: Attribute.Text & Attribute.Required;
     repoUrl: Attribute.String & Attribute.Required;
     contributors: Attribute.Component<'layout.project-contributor', true>;
     languages: Attribute.Component<'layout.language', true>;
+    description: Attribute.RichText & Attribute.Required;
   };
 }
 

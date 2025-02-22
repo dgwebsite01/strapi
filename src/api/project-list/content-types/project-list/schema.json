@@ -4,7 +4,8 @@
   "info": {
     "singularName": "project-list",
     "pluralName": "project-lists",
-    "displayName": "ProjectList"
+    "displayName": "ProjectList",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -16,6 +17,11 @@
       "repeatable": true,
       "component": "layout.project",
       "required": true
+    },
+    "introText": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.rich-text-w-ith-specific-font"
     }
   }
 }
