@@ -788,6 +788,37 @@ export interface PluginUsersPermissionsUser extends Schema.CollectionType {
   };
 }
 
+export interface ApiCertificateListCertificateList extends Schema.SingleType {
+  collectionName: 'certificate_lists';
+  info: {
+    singularName: 'certificate-list';
+    pluralName: 'certificate-lists';
+    displayName: 'CertificateList';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    certificates: Attribute.Component<'layout.certificate', true>;
+    introText: Attribute.Component<'layout.rich-text-w-ith-specific-font'>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::certificate-list.certificate-list',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::certificate-list.certificate-list',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
 export interface ApiContactInfoContactInfo extends Schema.SingleType {
   collectionName: 'contact_infos';
   info: {
@@ -822,49 +853,6 @@ export interface ApiContactInfoContactInfo extends Schema.SingleType {
       'oneToOne',
       'admin::user'
     > &
-      Attribute.Private;
-  };
-}
-
-export interface ApiCvCv extends Schema.SingleType {
-  collectionName: 'cvs';
-  info: {
-    singularName: 'cv';
-    pluralName: 'cvs';
-    displayName: 'CV';
-    description: '';
-  };
-  options: {
-    draftAndPublish: true;
-  };
-  attributes: {
-    content: Attribute.RichText & Attribute.Required;
-    defaultFont: Attribute.Enumeration<
-      [
-        'exo-2',
-        'exo-2-extra-large',
-        'exo-2-bold',
-        'exo-2-bold-extra-large',
-        'iceland-regular',
-        'iceland-regular-extra-large',
-        'iceland-regular-bold',
-        'iceland-regular-bold-extra-large',
-        'playwrite-de-grund',
-        'playwrite-de-grund-bold',
-        'playwrite-de-grund-extra-large',
-        'playwrite-de-grund-bold-extra-large',
-        'quicksand',
-        'quicksand-extra-large',
-        'quicksand-bold',
-        'quicksand-bold-extra-large'
-      ]
-    >;
-    createdAt: Attribute.DateTime;
-    updatedAt: Attribute.DateTime;
-    publishedAt: Attribute.DateTime;
-    createdBy: Attribute.Relation<'api::cv.cv', 'oneToOne', 'admin::user'> &
-      Attribute.Private;
-    updatedBy: Attribute.Relation<'api::cv.cv', 'oneToOne', 'admin::user'> &
       Attribute.Private;
   };
 }
@@ -1044,8 +1032,8 @@ declare module '@strapi/types' {
       'plugin::users-permissions.permission': PluginUsersPermissionsPermission;
       'plugin::users-permissions.role': PluginUsersPermissionsRole;
       'plugin::users-permissions.user': PluginUsersPermissionsUser;
+      'api::certificate-list.certificate-list': ApiCertificateListCertificateList;
       'api::contact-info.contact-info': ApiContactInfoContactInfo;
-      'api::cv.cv': ApiCvCv;
       'api::header.header': ApiHeaderHeader;
       'api::intro.intro': ApiIntroIntro;
       'api::project-list.project-list': ApiProjectListProjectList;

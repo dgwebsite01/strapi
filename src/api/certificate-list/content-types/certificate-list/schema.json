@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "certificate_lists",
+  "info": {
+    "singularName": "certificate-list",
+    "pluralName": "certificate-lists",
+    "displayName": "CertificateList"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "certificates": {
+      "type": "component",
+      "repeatable": true,
+      "component": "layout.certificate"
+    },
+    "introText": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.rich-text-w-ith-specific-font"
+    }
+  }
+}

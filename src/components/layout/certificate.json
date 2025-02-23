@@ -1,0 +1,31 @@
+{
+  "collectionName": "components_layout_certificates",
+  "info": {
+    "displayName": "certificate",
+    "icon": "crown"
+  },
+  "options": {},
+  "attributes": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "fileUrl": {
+      "type": "string"
+    },
+    "date": {
+      "type": "string"
+    },
+    "organizationName": {
+      "type": "string"
+    },
+    "organizationUrl": {
+      "type": "string"
+    },
+    "description": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.rich-text-w-ith-specific-font"
+    }
+  }
+}

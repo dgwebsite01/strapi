@@ -261,6 +261,22 @@ export interface LayoutImageList extends Schema.Component {
   };
 }
 
+export interface LayoutCertificate extends Schema.Component {
+  collectionName: 'components_layout_certificates';
+  info: {
+    displayName: 'certificate';
+    icon: 'crown';
+  };
+  attributes: {
+    name: Attribute.String & Attribute.Required;
+    fileUrl: Attribute.String;
+    date: Attribute.String;
+    organizationName: Attribute.String;
+    organizationUrl: Attribute.String;
+    description: Attribute.Component<'layout.rich-text-w-ith-specific-font'>;
+  };
+}
+
 export interface LayoutButton extends Schema.Component {
   collectionName: 'components_layout_buttons';
   info: {
@@ -287,6 +303,7 @@ declare module '@strapi/types' {
       'layout.project-contributor': LayoutProjectContributor;
       'layout.language': LayoutLanguage;
       'layout.image-list': LayoutImageList;
+      'layout.certificate': LayoutCertificate;
       'layout.button': LayoutButton;
     }
   }
