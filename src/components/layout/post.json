@@ -1,0 +1,27 @@
+{
+  "collectionName": "components_layout_posts",
+  "info": {
+    "displayName": "Post",
+    "icon": "exit"
+  },
+  "options": {},
+  "attributes": {
+    "content": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.rich-text-w-ith-specific-font",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "image": {
+      "allowedTypes": [
+        "images"
+      ],
+      "type": "media",
+      "multiple": false
+    }
+  }
+}

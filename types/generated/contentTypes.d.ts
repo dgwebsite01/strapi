@@ -919,6 +919,31 @@ export interface ApiIntroIntro extends Schema.SingleType {
   };
 }
 
+export interface ApiPostPost extends Schema.CollectionType {
+  collectionName: 'posts';
+  info: {
+    singularName: 'post';
+    pluralName: 'posts';
+    displayName: 'Post';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    image: Attribute.Media<'images'>;
+    content: Attribute.Component<'layout.rich-text-w-ith-specific-font'> &
+      Attribute.Required;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<'api::post.post', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<'api::post.post', 'oneToOne', 'admin::user'> &
+      Attribute.Private;
+  };
+}
+
 export interface ApiProjectListProjectList extends Schema.SingleType {
   collectionName: 'project_lists';
   info: {
@@ -944,6 +969,37 @@ export interface ApiProjectListProjectList extends Schema.SingleType {
       Attribute.Private;
     updatedBy: Attribute.Relation<
       'api::project-list.project-list',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+  };
+}
+
+export interface ApiPublicationListPublicationList extends Schema.SingleType {
+  collectionName: 'publication_lists';
+  info: {
+    singularName: 'publication-list';
+    pluralName: 'publication-lists';
+    displayName: 'PublicationList';
+  };
+  options: {
+    draftAndPublish: true;
+  };
+  attributes: {
+    introText: Attribute.Component<'layout.rich-text-w-ith-specific-font'>;
+    publications: Attribute.Component<'layout.publication', true>;
+    createdAt: Attribute.DateTime;
+    updatedAt: Attribute.DateTime;
+    publishedAt: Attribute.DateTime;
+    createdBy: Attribute.Relation<
+      'api::publication-list.publication-list',
+      'oneToOne',
+      'admin::user'
+    > &
+      Attribute.Private;
+    updatedBy: Attribute.Relation<
+      'api::publication-list.publication-list',
       'oneToOne',
       'admin::user'
     > &
@@ -1036,7 +1092,9 @@ declare module '@strapi/types' {
       'api::contact-info.contact-info': ApiContactInfoContactInfo;
       'api::header.header': ApiHeaderHeader;
       'api::intro.intro': ApiIntroIntro;
+      'api::post.post': ApiPostPost;
       'api::project-list.project-list': ApiProjectListProjectList;
+      'api::publication-list.publication-list': ApiPublicationListPublicationList;
       'api::resume.resume': ApiResumeResume;
       'api::technologies-list.technologies-list': ApiTechnologiesListTechnologiesList;
     }

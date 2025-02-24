@@ -1,0 +1,25 @@
+{
+  "kind": "singleType",
+  "collectionName": "publication_lists",
+  "info": {
+    "singularName": "publication-list",
+    "pluralName": "publication-lists",
+    "displayName": "PublicationList"
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "introText": {
+      "type": "component",
+      "repeatable": false,
+      "component": "layout.rich-text-w-ith-specific-font"
+    },
+    "publications": {
+      "type": "component",
+      "repeatable": true,
+      "component": "layout.publication"
+    }
+  }
+}

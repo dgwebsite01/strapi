@@ -62,6 +62,30 @@ export interface LayoutRichTextWIthSpecificFont extends Schema.Component {
   };
 }
 
+export interface LayoutPublication extends Schema.Component {
+  collectionName: 'components_layout_publications';
+  info: {
+    displayName: 'Publication';
+    icon: 'discuss';
+  };
+  attributes: {
+    title: Attribute.String & Attribute.Required;
+    publisher: Attribute.String;
+    url: Attribute.String;
+    year: Attribute.Integer &
+      Attribute.Required &
+      Attribute.SetMinMax<
+        {
+          min: 2000;
+          max: 3000;
+        },
+        number
+      >;
+    contributors: Attribute.Component<'layout.project-contributor', true> &
+      Attribute.Required;
+  };
+}
+
 export interface LayoutProject extends Schema.Component {
   collectionName: 'components_layout_projects';
   info: {
@@ -88,6 +112,20 @@ export interface LayoutProjectContributor extends Schema.Component {
     name: Attribute.String;
     url: Attribute.String;
     image: Attribute.Media<'images'> & Attribute.Required;
+  };
+}
+
+export interface LayoutPost extends Schema.Component {
+  collectionName: 'components_layout_posts';
+  info: {
+    displayName: 'Post';
+    icon: 'exit';
+  };
+  attributes: {
+    content: Attribute.Component<'layout.rich-text-w-ith-specific-font'> &
+      Attribute.Required;
+    title: Attribute.String & Attribute.Required;
+    image: Attribute.Media<'images'>;
   };
 }
 
@@ -266,6 +304,7 @@ export interface LayoutCertificate extends Schema.Component {
   info: {
     displayName: 'certificate';
     icon: 'crown';
+    description: '';
   };
   attributes: {
     name: Attribute.String & Attribute.Required;
@@ -274,6 +313,7 @@ export interface LayoutCertificate extends Schema.Component {
     organizationName: Attribute.String;
     organizationUrl: Attribute.String;
     description: Attribute.Component<'layout.rich-text-w-ith-specific-font'>;
+    image: Attribute.Media<'images'>;
   };
 }
 
@@ -299,8 +339,10 @@ declare module '@strapi/types' {
       'layout.tool': LayoutTool;
       'layout.timeline-item': LayoutTimelineItem;
       'layout.rich-text-w-ith-specific-font': LayoutRichTextWIthSpecificFont;
+      'layout.publication': LayoutPublication;
       'layout.project': LayoutProject;
       'layout.project-contributor': LayoutProjectContributor;
+      'layout.post': LayoutPost;
       'layout.language': LayoutLanguage;
       'layout.image-list': LayoutImageList;
       'layout.certificate': LayoutCertificate;
