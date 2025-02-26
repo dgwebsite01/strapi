@@ -6,7 +6,10 @@ module.exports = (config, { strapi }) => {
     console.log("REQUEST ORIGIN ", requestOrigin);
     console.log("REQUEST ", ctx.request);
 
-    if (!requestOrigin && ctx.request.url.startsWith("/admin")) {
+    if (
+      (!requestOrigin && ctx.request.url.startsWith("/admin")) ||
+      ctx.request.url.startsWith("/i18n/locales")
+    ) {
       await next();
       return;
     }
