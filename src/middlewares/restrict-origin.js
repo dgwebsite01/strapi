@@ -3,6 +3,8 @@ module.exports = (config, { strapi }) => {
     const allowedOrigins = [process.env.FRONTEND_URL, process.env.STRAPI_URL];
     const requestOrigin = ctx.request.headers.origin;
     const allowedMethodsFromFrontend = ["GET", "POST"];
+    console.log("REQUEST ORIGIN ", requestOrigin);
+    console.log("REQUEST ", ctx.request);
 
     if (
       allowedOrigins.length === 0 ||
