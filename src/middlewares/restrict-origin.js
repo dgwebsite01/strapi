@@ -8,7 +8,12 @@ module.exports = (config, { strapi }) => {
 
     if (
       (!requestOrigin && ctx.request.url.startsWith("/admin")) ||
-      ctx.request.url.startsWith("/i18n/locales")
+      ctx.request.url.startsWith("/i18n/locales") ||
+      ctx.request.url.startsWith("/content-manager") ||
+      ctx.request.url.startsWith("/content-type-builder") ||
+      ctx.request.url.startsWith("/upload") ||
+      ctx.request.url.startsWith("/email") ||
+      ctx.request.url.startsWith("/users-permissions")
     ) {
       await next();
       return;
